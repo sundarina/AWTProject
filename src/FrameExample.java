@@ -16,5 +16,6 @@ public class FrameExample {
 	public static void main(String args[]) {
 		FrameExample guiWindow = new FrameExample();
 		guiWindow.launchFrame();
+		System.out.println((int)'z');
 	}
 }
