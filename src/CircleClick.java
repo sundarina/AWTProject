@@ -14,6 +14,8 @@ public class CircleClick extends WindowAdapter implements ActionListener, MouseL
 	int y;
 	int radius;
 	TextField radiusField;
+	Button buttonGo;
+	Button buttonStop;
 
 	int mas[][] = new int[6][3];
 	int counter = 0;
@@ -36,6 +38,9 @@ public class CircleClick extends WindowAdapter implements ActionListener, MouseL
 
 		panel = new Panel();
 
+		buttonGo = new Button("Gooooo!");
+		buttonStop = new Button("Stop");
+
 		radiusField = new TextField(10);
 		radiusField.setText("0");
 
@@ -45,10 +50,14 @@ public class CircleClick extends WindowAdapter implements ActionListener, MouseL
 		frame.add(panel2, BorderLayout.CENTER);
 		frame.add(panel, BorderLayout.SOUTH);
 		panel.add(radiusField);
+		panel.add(buttonGo);
+		panel.add(buttonStop);
 		frame.setSize(400, 300);
 		frame.addWindowListener(this);
 		frame.setVisible(true);
 		panel2.addMouseListener(this);
+		buttonGo.addActionListener(this);
+		buttonStop.addActionListener(this);
 
 	}
 
@@ -86,9 +95,19 @@ public class CircleClick extends WindowAdapter implements ActionListener, MouseL
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
 
+		if (e.getSource() == buttonGo) {
+			for (int i = 0; ; i++) {
+				
+					mas[counter][0] = (int) (Math.random() * 400);
+					mas[counter][1] = (int) (Math.random() * 300);
+					mas[counter][2] = (Integer.parseInt(radiusField.getText()));
+					counter++;
+					panel2.update(panel2.getGraphics());
+				
+			}
+		}
 	}
 
 	public void windowClosing(WindowEvent e) { // close the frame/window
