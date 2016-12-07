@@ -115,6 +115,6 @@ public class CircleClick extends WindowAdapter implements ActionListener, MouseL
 	}
 
 	public static void main(String[] args) {
-		CircleClick pc = new CircleClick();
+		 new CircleClick();
 	}
 }
